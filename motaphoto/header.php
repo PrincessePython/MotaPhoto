@@ -4,15 +4,31 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>"> <!-- Permet de définir 'encoage du site -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fite=no" />
+    <!-- linking css file -->
+    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 
-    <?php wp_head(); ?> <!-- Fonction essentielle au bon fonctionnement de thème -->
+    <!-- adding Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+
+    <!-- Fonction essentielle au bon fonctionnement de thème -->
+    <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
     <header class="header">
-        <a href="<?php echo home_url('/'); ?>"> <!-- Permet de revenir à l'accueil une fois logo est cliqué -->
-            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo"> <!-- Pour avoir adresse absolute (dit "complet") -->
-        </a>
+        <div class="logo">
+            <a href="<?php echo home_url('/'); ?>"> <!-- Permet de revenir à l'accueil une fois logo est cliqué -->
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo"> <!-- Pour avoir adresse absolute (dit "complet") -->
+            </a>
+        </div>
+        <div class="nav-links">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">A propos</a></li>
+            <li><a href="#">Contact</a></li>
+        </div>
     </header>

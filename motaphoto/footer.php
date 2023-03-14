@@ -1,10 +1,22 @@
 <?php wp_footer(); ?>
+
+<!-- Rajout de menu via panel d'administration -->
 <footer class="footer">
-<div class="footer-nav-links">
-            <li><a href="#">Mentions légales</a></li>
-            <li><a href="#">Vie Privée</a></li>
-            <li><a href="#">Tous Droits Réservés</a></li>
-        </div>
+        <?php
+        if (has_nav_menu('footer-menu')) : ?>
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'footer-menu',
+                'menu_class' => 'my-footer-menu', // classe CSS pour customiser mon menu
+            )); ?>
+        <?php endif;
+        ?>
+        <!-- mention texte “Tous droits réservés” -->
+        <p class="my-footer-menu">Tous Droits Réservés</p>
 </footer>
+
+<!-- Appeler le fichier modal-contact.php (pop-up contact) -->
+<?php get_template_part( 'template_parts/contact'); ?>
+
 </body>
 </html>

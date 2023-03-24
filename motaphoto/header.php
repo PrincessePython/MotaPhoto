@@ -17,7 +17,7 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-
+    
     <header class="header">
         <div class="logo">
             <a href="<?php echo home_url('/'); ?>"> <!-- Permet de revenir à l'accueil une fois logo est cliqué -->
@@ -32,7 +32,10 @@
             wp_nav_menu(array(
                 'theme_location' => 'main-menu',
                 'menu_class' => 'my-main-menu', // classe CSS pour customiser mon menu
-            )); ?>
+            )); 
+            ?>
         <?php endif;
         ?>
     </header>
+
+    

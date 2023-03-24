@@ -62,6 +62,7 @@ body {
 /* ========================= Contact pop-up ================= */
 
 .popup{
+    visibility: hidden;
     position:fixed;
     width:100%;
     height:100%;
@@ -73,6 +74,10 @@ body {
     top:0;
     left:0;
 }
+.popup.active{
+    visibility: visible;
+}
+
 .popup-body{
     background:white;
     border-radius:20px;
@@ -81,7 +86,7 @@ body {
     position:relative;
 }
 
-.close{
+#close{
     position:absolute;
     top:-5px;
     right:-5px;
@@ -97,8 +102,63 @@ body {
     transition:all 0.4s ease;
 }
 
-.close:hover{
+#close:hover{
     transform:rotate(180deg);
 }
 
+/* ========================== Page d'accueil =============== */
 
+
+h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.hero-header{
+    width: 100%;
+    height: 0;
+    padding-top: 66%; /* calculated from the image aspect ratio to make the header proportional on all screens. */
+    position: relative;
+    background-image: url('http://localhost/OpenClassrooms/projet-11/motaphoto/wp-content/uploads/2023/03/nathalie-11-scaled.jpeg');
+}
+
+
+.filters{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+#photos {
+    margin-bottom: 50px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .photo-grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+
+  /* Load more button styles */
+#load-more {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+  
+  #load-more:hover {
+    background-color: #444;
+  }

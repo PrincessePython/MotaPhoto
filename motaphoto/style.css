@@ -7,18 +7,16 @@ Description: Thème site photographe
 Version: 1.0
 */
 
+
 html {
-	-webkit-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     font-family: "Space Mono", sans-serif;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
-/* Remove the margin in all browsers. */
 
-body {
-   margin: 0 auto;
-   width: 100%;
-   min-width: 1440px;
-}
 
 /*========================= Navigation menu ===================*/
 .header{
@@ -27,18 +25,30 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+    align-items: center;
 }
 .my-main-menu{
     display: flex;
     flex-direction: row;
-    gap: 15px;
-    
+    gap: 15px; 
 }
+.new-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+#rebel-ul{
+    padding: 0;
+}
+
+#contact,
 .my-main-menu li, 
 .my-footer-menu li{
     list-style: none;
 }
+
+#contact,
+#contact a,
 .my-main-menu a, 
 .my-footer-menu a,
 .my-footer-menu {
@@ -48,6 +58,7 @@ body {
     color: black;   
 }
 /*========================= Footer menu ===================*/
+
 .footer{
     height: 40px;
     border-top: solid 1px black;
@@ -99,7 +110,7 @@ body {
     display:flex;
     justify-content:center;
     align-items:center;
-    transition:all 0.4s ease;
+    transition:all 0.4s ease-out;
 }
 
 #close:hover{
@@ -107,14 +118,6 @@ body {
 }
 
 /* ========================== Page d'accueil =============== */
-
-
-h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 .hero-header{
     width: 100%;
     height: 0;
@@ -122,25 +125,50 @@ h1{
     position: relative;
     background-image: url('http://localhost/OpenClassrooms/projet-11/motaphoto/wp-content/uploads/2023/03/nathalie-11-scaled.jpeg');
 }
+.hero-title{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    left: 10%;
 
+    font-family: "Space Mono", sans-serif;
+    font-size: 7em;
+    font-weight: 700;
+    font-style: italic;
+    color: white;
+
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+    mix-blend-mode: overlay;
+
+ 
+}
 
 .filters{
     display: flex;
     flex-direction: row;
-    text-align: center;
+    justify-content: space-between;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
 }
 
 #photos {
     margin-bottom: 50px;
 }
 
+
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
+    /* grid-template-rows: 5vh 5vh; */
   }
-  
-  .photo-grid img {
+
+.photo-grid img {
     display: block;
     width: 100%;
     height: auto;
@@ -162,3 +190,11 @@ h1{
   #load-more:hover {
     background-color: #444;
   }
+
+  /* .image-container{
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+  } */
+
+ 

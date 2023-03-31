@@ -17,25 +17,29 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    
+
     <header class="header">
         <div class="logo">
             <a href="<?php echo home_url('/'); ?>"> <!-- Permet de revenir à l'accueil une fois logo est cliqué -->
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo"> <!-- Pour avoir adresse absolute (dit "complet") -->
             </a>
         </div>
-        
-        <!-- Rajout de menu via panel d'administration -->
-        <?php
-        if (has_nav_menu('main-menu')) : ?>
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'main-menu',
-                'menu_class' => 'my-main-menu', // classe CSS pour customiser mon menu
-            )); 
-            ?>
-        <?php endif;
-        ?>
-    </header>
 
-    
+        <!-- Rajout de menu via panel d'administration -->
+        <div class="new-container">
+            <?php
+            if (has_nav_menu('main-menu')) : ?>
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'main-menu',
+                    'menu_class' => 'my-main-menu', // classe CSS pour customiser mon menu
+                ));
+                ?>
+            <?php endif;
+            ?>
+            <ul id="rebel-ul">
+                <li id="contact"><a href="#">Contact</a></li>
+            </ul>
+
+        </div>
+    </header>

@@ -32,3 +32,35 @@ function register_my_menus()
     );
 }
 add_action('init', 'register_my_menus');
+
+
+// Stupid AJAX //
+function load_more(){
+    $allPhotos = new WP_Query([
+        'post_type'=> 'photo',
+        'post_per_page' => 4,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    ]);
+
+    if($allPhotos->have_posts()) {
+        while($allPhotos->have_posts()){
+            $allPhotos->the_post();
+            echo '<div class="image-container">';
+            echo '<img src="';
+
+                $pic = get_field('image');
+                echo $pic['url'];
+                echo '" alt="image de marriage">';
+                echo '</div>';
+        }
+    }else {
+        echo '';
+
+    }
+    exit;
+}
+
+add_action('wp_ajax_load_more', 'load_more');
+add_action('wp_ajax_nopriv_load_more', 'load_more');

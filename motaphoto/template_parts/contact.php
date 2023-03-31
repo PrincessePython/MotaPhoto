@@ -1,5 +1,5 @@
 <!--  Modal de contact  -->
-<div class="popup active">
+<div class="popup">
 	<div class="popup-body">
         <button id="close">x</button>
 		<?php

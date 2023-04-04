@@ -34,11 +34,11 @@ function register_my_menus()
 add_action('init', 'register_my_menus');
 
 
-// Stupid AJAX //
+//========================  Load more button ================================================= //
 function load_more(){
     $allPhotos = new WP_Query([
         'post_type'=> 'photo',
-        'post_per_page' => 4,
+        'post_per_page' => 12,
         'orderby' => 'date',
         'order' => 'DESC',
         'paged' => $_POST['paged'],

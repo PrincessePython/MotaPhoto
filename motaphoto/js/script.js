@@ -18,6 +18,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         const contactBtn = document.getElementById('contact');
+        const filledBtn = document.getElementById('contact-filled');
         // console.log(contactBtn);
         contactBtn.addEventListener('click', function () {
             // console.log('you are clicking on contact');
@@ -25,6 +26,12 @@
             popupOverlay.classList.add('active');
             // console.log('you have activated popup');
         })
+
+        filledBtn.addEventListener('click', function () {
+            const popupOverlay = document.querySelector('.popup');
+            popupOverlay.classList.add('active');
+        })
+
     })
 
     // ===================== AJAX load more  =================================== //
@@ -62,10 +69,6 @@
 
     }
     loadMore();
-
-
-
-
 
     // ===================== load more jQuery =================== //
 

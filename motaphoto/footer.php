@@ -12,9 +12,9 @@
     <?php endif;
     ?>
     <!-- mention texte “Tous droits réservés” -->
-    <div class="rights-reserved">
+    <!-- <div class="rights-reserved">
         <p class="my-footer-menu">Tous Droits Réservés</p>
-    </div>
+    </div> -->
 </footer>
 
 

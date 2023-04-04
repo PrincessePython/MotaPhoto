@@ -14,9 +14,8 @@ html {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    /* padding: 0; */
 }
-
-
 
 /*========================= Navigation menu ===================*/
 .header{
@@ -32,7 +31,7 @@ html {
     flex-direction: row;
     gap: 15px; 
 }
-.new-container{
+.nav-links-container{
     display: flex;
     justify-content: space-between;
     gap: 15px;
@@ -70,6 +69,11 @@ html {
 
 }
 
+.right-reserved{
+    text-decoration: none;
+    pointer-events: none;
+}
+
 /* ========================= Contact pop-up ================= */
 
 .popup{
@@ -92,9 +96,13 @@ html {
 .popup-body{
     background:white;
     border-radius:20px;
-    max-width:680px;
-    padding:30px;
+    max-width:25%;
     position:relative;
+}
+.wpcf7{
+    padding-left: 30px;
+    padding-right: 30px;
+    
 }
 
 #close{
@@ -117,13 +125,21 @@ html {
     transform:rotate(180deg);
 }
 
+
+.contact-banner{
+    width: 100%;
+}
+.contact-banner img{
+    max-width: 100%;
+}
+
 /* ========================== Page d'accueil =============== */
 .hero-header{
     width: 100%;
     height: 0;
     padding-top: 66%; /* calculated from the image aspect ratio to make the header proportional on all screens. */
     position: relative;
-    background-image: url('http://localhost/OpenClassrooms/projet-11/motaphoto/wp-content/uploads/2023/03/nathalie-11-scaled.jpeg');
+    background-image: url('http://localhost/OpenClassrooms/projet-11/motaphoto/wp-content/uploads/2023/04/concert-street-scaled.webp');
 }
 .hero-title{
     position: absolute;
@@ -140,10 +156,9 @@ html {
     font-style: italic;
     color: white;
 
-    text-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+    text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.91);
     mix-blend-mode: overlay;
 
- 
 }
 
 .filters{
@@ -153,29 +168,68 @@ html {
 
     margin-top: 20px;
     margin-bottom: 20px;
-
 }
 
-#photos {
-    margin-bottom: 50px;
+.filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* add this line to vertically center the filters */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%; /* add this line to take up the full width of the container */
 }
 
+.filters-1-2{
+    display: flex;
+    width: 50%;
+}
+
+.filter-cat,
+.filter-formats{
+    width: 50%; /* divide the width equally */
+}
+
+.filter-formats{
+    margin-right: 0; /* remove margin-right from the last filter */
+}
+
+#categories-select,
+#filter-select{
+    width: 97%;
+    /* height: 2vh; */
+}
+
+.filter-3{
+    display: flex;
+    flex-direction: column;
+}
+#sort-select{
+    width: 100%;
+}
+
+
+.letters-transform{
+    text-transform: uppercase;
+}
 
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
-    /* grid-template-rows: 5vh 5vh; */
-  }
-
-.photo-grid img {
-    display: block;
-    width: 100%;
-    height: auto;
   }
   
+  .photo-grid img {
+    display: block;
+    width: 100%;
+    height: 50vh;
+    object-fit:cover;
+    margin: 0 auto;
+  }
+  
+  
 
-  /* Load more button styles */
+  /*========================== Load more button styles ==================*/
 #load-more {
     display: block;
     margin: 0 auto;
@@ -185,16 +239,59 @@ html {
     border: none;
     cursor: pointer;
     margin-top: 30px;
+    margin-bottom: 30px;
   }
   
   #load-more:hover {
     background-color: #444;
   }
 
-  /* .image-container{
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-  } */
+/* ========================== Single page ======================= */
+.main-content {
+    width: 100%;
+    border-bottom: 1px solid #000000;
+  }
+  
+  .content-body {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  
+  .title-type{
+    flex-basis: 50%;
+    width: 50%;
+    border-bottom: 1px solid black;
+    border-bottom-width: 50%;
+  }
+  
+  .photo-container {
+    flex-basis: 50%;
+    width: 50%;
+  }
+  
+  .single-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+  }
 
- 
+  .contact-carrousel{
+    display: flex;
+    margin: 0 auto;
+    height: 118px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contact-btn {
+    flex-basis: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  
+

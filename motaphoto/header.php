@@ -26,7 +26,7 @@
         </div>
 
         <!-- Rajout de menu via panel d'administration -->
-        <div class="new-container">
+        <div class="nav-links-container">
             <?php
             if (has_nav_menu('main-menu')) : ?>
                 <?php

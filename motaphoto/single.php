@@ -11,21 +11,23 @@
     <section class="main-content">
         <div class="content-body">
             <div class="title-type">
-                <p><?php echo get_field('reference'); ?></p>
-                <p><?php echo get_the_title(); ?></p>
-                <p><?php echo get_the_date('Y'); ?></p>
-                <p><?php echo get_field('type'); ?></p>
-                <p><?php echo get_field('format'); ?></p>
-
+                <p>Référence : <span class="ref-val"><?php echo get_field('reference'); ?></span></p>
+                <p>Catégorie : <?php echo get_field('category'); ?></p>
+                <p>Format : <?php echo get_field('format'); ?></p>
+                <p>Type : <?php echo get_field('type'); ?></p>
+                <p>Année : <?php echo get_the_date('Y'); ?></p>
             </div>
 
             <div class="photo-container">
-                <div class="single-photo"><img src="<?php
-                                                    $pic = get_field('image');
-                                                    echo $pic['url'];
-                                                    ?>" alt="image de marriage"></div>
+                <div class="single-photo">
+                    <img src="<?php
+                        $pic = get_field('image');
+                            echo $pic['url'];
+                        ?>" alt="image de marriage">
+                </div>
             </div>
         </div>
+
         <div class="contact-carrousel">
             <div class="contact-btn">
                 <h4>You like this photo ?</h4>

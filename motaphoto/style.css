@@ -208,7 +208,7 @@ html {
     width: 100%;
 }
 
-
+.title-type p,
 .letters-transform{
     text-transform: uppercase;
 }
@@ -225,6 +225,7 @@ html {
     height: 50vh;
     object-fit:cover;
     margin: 0 auto;
+    /* background-position: center; */
   }
   
   
@@ -273,10 +274,12 @@ html {
   }
   
   .single-photo img {
+    /* il faut choisir si je me base sur le portrait ou le paysage mais on ne peut pas avoir les 2 */
     width: 100%;
     height: auto;
-    max-height: 100vh;
-    object-fit: cover;
+    max-height: 90vh;
+    object-fit: cover;  
+    /* background-position: center; */
   }
 
   .contact-carrousel{
@@ -293,5 +296,8 @@ html {
     flex-direction: row;
   }
 
+  input[name="reference"]{
+    background-color: red !important;
+  }
   
 

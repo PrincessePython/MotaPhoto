@@ -30,6 +30,11 @@
         filledBtn.addEventListener('click', function () {
             const popupOverlay = document.querySelector('.popup');
             popupOverlay.classList.add('active');
+            // ici le code pour afficher la ref
+            // afficher la ref d'image : single.php -> class ref && contenu && ce centenu passe (injecter) en value dans le formulaire champs ref
+            const reference = document.querySelector('.ref-val').innerText;
+            // console.log(reference);
+            document.querySelector('input[name="reference"]').value=reference;
         })
 
     })

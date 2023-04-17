@@ -36,31 +36,63 @@ add_action('init', 'register_my_menus');
 
 //========================  Load more button ================================================= //
 function load_more(){
+    $paged = $_POST['paged'];
+    $posts_per_page = 12;
+
     $allPhotos = new WP_Query([
         'post_type'=> 'photo',
-        'post_per_page' => 12,
+        'posts_per_page' => $posts_per_page,
         'orderby' => 'date',
-        'order' => 'DESC',
-        'paged' => $_POST['paged'],
+        'order' => 'ASC',
+        'paged' => $paged,
     ]);
 
-    if($allPhotos->have_posts()) {
-        while($allPhotos->have_posts()){
+    if ($allPhotos->have_posts()) {
+        $displayedPosts = array(); // Initialize empty array
+        while ($allPhotos->have_posts()) {
             $allPhotos->the_post();
-            echo '<div class="image-container">';
-            echo '<img src="';
 
-                $pic = get_field('image');
-                echo $pic['url'];
-                echo '" alt="image de marriage">';
-                echo '</div>';
+            // Check if post has already been displayed
+            if (in_array(get_the_ID(), $displayedPosts)) {
+                continue; // Skip this post
+            }
+
+            $permalink = get_the_permalink();
+            $pic = get_field('image');
+
+            echo '<div class="img">';
+            echo '<a href="' . $permalink . '">';
+            echo '<img src="' . $pic['url'] . '" alt="image de marriage">';
+            echo '</a>';
+            echo '</div>';
+
+            $displayedPosts[] = get_the_ID(); // Add post ID to array
         }
-    }else {
+    } else {
         echo '';
-
     }
+
+    wp_reset_postdata();
     exit;
 }
 
 add_action('wp_ajax_load_more', 'load_more');
 add_action('wp_ajax_nopriv_load_more', 'load_more');
+
+
+//========================  Single page : suggested pics Load more button ================================================= //
+
+
+
+
+//========================  Front page : filters ================================================= //
+ function filtersHomePage(){
+    //some code here and then ajax request
+
+    // fonction has to display photos according to a category that is selected
+    // 1. check if category || filter is selected. 
+    // 2. make a demande from the bdd for those names / slugs ? 
+    // 3. stock the result else where (in variable) to be used id js function
+    // 4. JS: ajax request to load the content that was demanded 
+ }
+

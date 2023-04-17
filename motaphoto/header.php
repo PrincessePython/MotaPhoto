@@ -5,10 +5,16 @@
     <meta charset="<?php bloginfo('charset'); ?>"> <!-- Permet de définir 'encoage du site -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fite=no" />
 
-    <!-- adding Google Fonts -->
+    <!--     adding Google Fonts -->
+    <!-- Space Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <!-- Fonction essentielle au bon fonctionnement de thème -->
     <?php wp_head(); ?>

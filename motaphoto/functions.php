@@ -89,10 +89,14 @@ add_action('wp_ajax_nopriv_load_more', 'load_more');
  function filtersHomePage(){
     //some code here and then ajax request
 
-    // fonction has to display photos according to a category that is selected
+    // Magic function has to display photos according to a category that is selected
+
     // 1. check if category || filter is selected. 
+
     // 2. make a demande from the bdd for those names / slugs ? 
+
     // 3. stock the result else where (in variable) to be used id js function
+
     // 4. JS: ajax request to load the content that was demanded 
  }
 

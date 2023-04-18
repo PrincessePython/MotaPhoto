@@ -19,7 +19,7 @@
 
     $terms_pic_formats = get_terms(array(
         'taxonomy' => 'format',
-        'hide_empty' => 'true',
+        'hide_empty' => false,
     ));
     ?>
 
@@ -71,7 +71,7 @@
         </div>
     </section>
 
-
+<!-- ---------------------------------------- Add a condition to display the section if no filters selected ---------------- -->
 
     <!-- ici j'affiche toutes les photos en 2 colonnes  -->
     <section class="image-container">
@@ -114,6 +114,11 @@
             <?php wp_reset_postdata(); ?>
         </div>
     </section>
+
+
+
+
+
     <!-------------------------------------------------- testing area ------------------------------------------>
 
     <?php 

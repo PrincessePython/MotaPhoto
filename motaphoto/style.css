@@ -201,13 +201,13 @@ html {
   width: 50%;
 }
 
-.filter-cat,
-.filter-formats {
+#filter-cat,
+#filter-formats {
   width: 50%;
   /* divide the width equally */
 }
 
-.filter-formats {
+#filter-formats {
   margin-right: 0;
   /* remove margin-right from the last filter */
 }
@@ -223,7 +223,7 @@ html {
   flex-direction: column;
 }
 
-#sort-select {
+#sort-dates {
   width: 100%;
 }
 

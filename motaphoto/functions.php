@@ -35,17 +35,39 @@ add_action('init', 'register_my_menus');
 
 
 //========================  Load more button ================================================= //
-function load_more(){
+function load_more() {
     $paged = $_POST['paged'];
     $posts_per_page = 12;
 
-    $allPhotos = new WP_Query([
-        'post_type'=> 'photo',
+    $args = [
+        'post_type' => 'photo',
         'posts_per_page' => $posts_per_page,
         'orderby' => 'date',
         'order' => 'ASC',
         'paged' => $paged,
-    ]);
+    ];
+
+    if (!empty($_POST['category'])) {
+        $args['tax_query'][] = [
+            'taxonomy' => 'categorie',
+            'field' => 'slug',
+            'terms' => $_POST['category'],
+        ];
+    }
+
+    if (!empty($_POST['format'])) {
+        $args['tax_query'][] = [
+            'taxonomy' => 'format',
+            'field' => 'slug',
+            'terms' => $_POST['format'],
+        ];
+    }
+
+    if (!empty($_POST['sort'])) {
+        $args['order'] = $_POST['sort'];
+    }
+
+    $allPhotos = new WP_Query($args);
 
     if ($allPhotos->have_posts()) {
         $displayedPosts = array(); // Initialize empty array
@@ -60,9 +82,10 @@ function load_more(){
             $permalink = get_the_permalink();
             $pic = get_field('image');
 
+           
             echo '<div class="img">';
             echo '<a href="' . $permalink . '">';
-            echo '<img src="' . $pic['url'] . '" alt="image de marriage">';
+            echo '<img src="' . $pic['url'] . '" alt="image de mariage">';
             echo '</a>';
             echo '</div>';
 
@@ -87,16 +110,6 @@ add_action('wp_ajax_nopriv_load_more', 'load_more');
 
 //========================  Front page : filters ================================================= //
  function filtersHomePage(){
-    //some code here and then ajax request
-
-    // Magic function has to display photos according to a category that is selected
-
-    // 1. check if category || filter is selected. 
-
-    // 2. make a demande from the bdd for those names / slugs ? 
-
-    // 3. stock the result else where (in variable) to be used id js function
-
-    // 4. JS: ajax request to load the content that was demanded 
+    // some code goes here
  }
 

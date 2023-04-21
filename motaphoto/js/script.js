@@ -41,48 +41,77 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-// ===================== AJAX load more page principale  =================================== //
+// ===================== AJAX load more page & filtres front-page.php  =================================== //
 
-function loadMore() {
+function loadPhotos(filters) {
     let currentPage = 1;
     const xhr = new XMLHttpRequest();
     const loadMoreBtn = document.getElementById('load-more');
+    const photoGrid = document.querySelector('.photo-grid');
 
-
-    loadMoreBtn.addEventListener('click', () => {
-        currentPage++;
-        // console.log("it works");
-
+    function sendRequest() {
         xhr.open('POST', "wp-admin/admin-ajax.php");
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.addEventListener('load', () => {
-            //  console.log(xhr);
-            //  console.log(xhr.status);
-
-            // verification of the Response status
             if (xhr.status === 200) {
-                //  console.log(xhr.statusText); 
-                //  console.log("still works, even here !!!! ");  // simple control if code is read up to this point
-
-                //displaying images here
                 const result = xhr.responseText;
-                document.querySelector('.photo-grid').insertAdjacentHTML('beforeend', result);
-
+                if (currentPage === 1) {
+                    photoGrid.innerHTML = result;
+                } else {
+                    photoGrid.insertAdjacentHTML('beforeend', result);
+                }
             } else {
-                console.error('Request faild. Error:', xhr.statusText);
+                console.error('Request failed. Error:', xhr.statusText);
             }
         });
-        
-        xhr.send('action=load_more&paged=' + currentPage);
-    })
 
+        let data = `action=load_more&paged=${currentPage}`;
+        for (const key in filters) {
+            data += `&${key}=${filters[key]}`;
+        }
+        xhr.send(data);
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+        currentPage++;
+        sendRequest();
+    });
+
+    sendRequest();
 }
 
-if(document.getElementById('load-more')){
-  loadMore();
+function initFilters() {
+    const categoryFilter = document.getElementById('categories-select');
+    const formatFilter = document.getElementById('filter-select');
+    const dateFilter = document.getElementById('sort-dates');
+
+    const filters = {
+        category: '',
+        format: '',
+        sort: ''
+    };
+
+    function updateFiltersAndLoad() {
+        filters.category = categoryFilter.value;
+        filters.format = formatFilter.value;
+        filters.sort = dateFilter.value;
+        loadPhotos(filters);
+    }
+
+    categoryFilter.addEventListener('change', updateFiltersAndLoad);
+    formatFilter.addEventListener('change', updateFiltersAndLoad);
+    dateFilter.addEventListener('change', updateFiltersAndLoad);
+
+    loadPhotos(filters);
 }
 
-// ===================== AJAX afficher toutes les photos : page single.php  ============================= //
+if (document.getElementById('load-more')) {
+    initFilters();
+}
+
+
+
+
 
 // ============================== Lightbox =================================== //
 

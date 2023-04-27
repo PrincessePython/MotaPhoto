@@ -26,75 +26,62 @@
         'post_type' => 'photo',
         'orderby' => 'date',
         'order' => 'ASC',
-        'posts_per_page' => 12, // je determine la limite d'affichage ici. Pour afficher tout : -1
+        'posts_per_page' => 4, // je determine la limite d'affichage ici. Pour afficher tout : -1
         'paged' => 1,
     );
     ?>
-
-    <!-- <form action="<?php 
-    // echo $_SERVER['PHP_SELF']; 
-    ?>" method="post"> -->
-        <section class="filters">
-            <div class="filters-1-2">
-                <form id="filter-cat" class="js-filter-form">
+    <section class="filters">
+        <div class="filters-1-2">
+            <form id="filter-cat" class="js-filter-form">
                 <!-- <div class="filter-cat"> -->
-                    <label for="category" class="letters-transform ">Catégories</label>
-                    <select name="categories" id="categories-select" class="filters_text">
-                       <option value=""></option>
-                            <?php
-                            if (!empty($terms_pic_category) && !is_wp_error($terms_pic_category)) {
-                                foreach ($terms_pic_category as $individual_pic_cat) {
-                                    $option_value = $individual_pic_cat->slug;
-                                    $option_name = $individual_pic_cat->name;
-                                    echo '<option value="' .$option_value. '">' . $option_name . '</option>';
-                                }
-                            }
-                            ?>
-                    </select>
+                <label for="category" class="letters-transform ">Catégories</label>
+                <select name="categories" id="categories-select" class="filters_text">
+                    <option></option>
+                    <option value="">Toutes les photos</option>
+                    <?php
+                    if (!empty($terms_pic_category) && !is_wp_error($terms_pic_category)) {
+                        foreach ($terms_pic_category as $individual_pic_cat) {
+                            $option_value = $individual_pic_cat->slug;
+                            $option_name = $individual_pic_cat->name;
+                            echo '<option value="' . $option_value . '">' . $option_name . '</option>';
+                        }
+                    }
+                    ?>
+                </select>
                 <!-- </div> -->
-                </form>
-                            
-                <!-- <div class="filter-formats"> -->
-                <form id="filter-formats">
-                    <label for="formats" class="letters-transform">Formats</label>
-                    <select name="format" id="filter-select" class="filters_text">
-                        <option value=""></option>
-                            <?php
-                            if (!empty($terms_pic_formats) && !is_wp_error($terms_pic_formats)) {
-                                foreach ($terms_pic_formats as $pic_format) {
-                                    $format_option_value = $pic_format->slug;
-                                    $format_option_name = $pic_format->name;
-                                    echo '<option value="' . $format_option_value . '">' . $format_option_name . '</option>';
-                                }
-                            }
-                            ?>
-                    </select>
-                <!-- </div> -->
-                </form>
-            </div>
-
-            <form id="filter-date">
-                <div class="filter-3">
-                    <label for="sort-by" class="letters-transform">Trier par</label>
-                    <select name="sort" id="sort-dates" class="filters_text">
-                        <option value=""></option>
-                        <option value="DESC">Nouveautés</option>
-                        <option value="ASC">Les plus anciens</option>
-                    </select>
-                </div>
             </form>
-            <!-- <button id="valider">valider</button> -->
-        </section>
-    <!-- </form> -->
 
-    <div>
-        <?php
-            // if (isset($_POST['categories'])) {
-            //     echo 'OK';
-            // }
-            // echo $_POST['categories'];
-        ?>
-    </div>
+            <!-- <div class="filter-formats"> -->
+            <form id="filter-formats">
+                <label for="formats" class="letters-transform">Formats</label>
+                <select name="format" id="filter-select" class="filters_text">
+                    <option></option>
+                    <option value="">Toutes les photos</option>
+                    <?php
+                    if (!empty($terms_pic_formats) && !is_wp_error($terms_pic_formats)) {
+                        foreach ($terms_pic_formats as $pic_format) {
+                            $format_option_value = $pic_format->slug;
+                            $format_option_name = $pic_format->name;
+                            echo '<option value="' . $format_option_value . '">' . $format_option_name . '</option>';
+                        }
+                    }
+                    ?>
+                </select>
+                <!-- </div> -->
+            </form>
+        </div>
+
+        <form id="filter-date">
+            <div class="filter-3">
+                <label for="sort-by" class="letters-transform">Trier par</label>
+                <select name="sort" id="sort-dates" class="filters_text">
+                    <option value=""></option>
+                    <option value="DESC">Nouveautés</option>
+                    <option value="ASC">Les plus anciens</option>
+                </select>
+            </div>
+        </form>
+    </section>
 
 
     <!-- ---------------------------------------- Add a condition to display the section if no filters selected ---------------- -->
@@ -102,8 +89,6 @@
     <!-- ici j'affiche toutes les photos en 2 colonnes  -->
     <section class="image-container">
         <?php
-
-
         // my custom query
         $allPhotos = new WP_Query($args);
         // var_dump($allPhotos);
@@ -112,22 +97,21 @@
             <?php if ($allPhotos->have_posts()) : ?>
                 <div class="photo-grid">
                     <?php while ($allPhotos->have_posts()) : $allPhotos->the_post(); ?>
-                        <div class="img">
+                        <div class="img-box">
                             <!-- Parcourir le tableau des images -->
                             <?php
-                            $permalink = get_the_permalink();
+                            // $permalink = get_the_permalink();
                             ?>
                             <?php $imgs = get_field('image'); ?>
                             <?php if ($imgs) { ?>
-                                <a href="<?php echo ($permalink); ?>">
-                                    <img src="<?php
-                                                // $pic = get_field('image');
-                                                echo $imgs['url'];
-                                                ?>" alt="image de marriage">
-                                </a>
-                            <?php }; ?>
-                        </div>
+                                <img src="
+                                <?php
+                                            // $pic = get_field('image');
+                                            // echo $imgs['url'];
+                                            ?>" alt="image de marriage">
 
+                                <?php }; ?>
+                            </div>
                     <?php endwhile; ?>
                 </div>
                 <button id="load-more">Load More</button>
@@ -135,6 +119,36 @@
             <?php wp_reset_postdata(); ?>
         </div>
     </section>
+
+<!-- 
+    <section class="testing-lightbox">
+        <div class="image-container-test">
+            <img src="<?php
+                        // echo $imgs['url'];
+                        ?>" alt="" width="300px" height="400px">
+            <div class="overlay">
+                <div class="open-fullscreen" rel="<?php 
+                // echo $imgs['url']; 
+                ?>">
+                    <a href="#"><img src="./assets/images/fullscreen.svg" alt="Fullscreen"></a>
+                </div>
+                <div class="eye">
+                    <a href="<?php 
+                    // echo ($permalink); 
+                    ?>"><img src="./assets/images/picture-eye.svg" alt="Eye" id="icon-eye"></a>
+                </div>
+                <div class="links">
+                    <p>Image title</p>
+                    <p>Catégorie</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+
 
     <!-------------------------------------------------- testing area ------------------------------------------>
 

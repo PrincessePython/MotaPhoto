@@ -22,6 +22,7 @@
 <!-- Appeler le fichier modal contact.php (pop-up contact) -->
 <?php
 get_template_part( 'template_parts/contact'); 
+get_template_part('template_parts/lightbox');
 ?>
 </body>
 

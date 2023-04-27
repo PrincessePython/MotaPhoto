@@ -42,11 +42,11 @@
         $next_item = get_next_post();
         $previous_item = get_previous_post();
                 
-        // $next_image = get_the_post_thumbnail($next_item->ID);
-        // $previous_image = get_the_post_thumbnail($previous_item->ID);
+        $next_image = get_the_post_thumbnail($next_item->ID);
+        $previous_image = get_the_post_thumbnail($previous_item->ID);
                 
-        // $permalink_next = get_the_permalink($next_item->ID);
-        // $permalink_prev = get_the_permalink($previous_item->ID);
+        $permalink_next = get_the_permalink($next_item->ID);
+        $permalink_prev = get_the_permalink($previous_item->ID);
 
         ?>
 
@@ -54,7 +54,7 @@
         <div class="photo-navigation">
             <div class="image">
                 <?php 
-                // echo $next_image; 
+                echo $next_image; 
                 ?>
             </div>
 
@@ -125,7 +125,10 @@
 
         </div>
         <?php $archivePage = get_post_type_archive_link( 'photo' ); ?>
-        <a href="<?php echo $archivePage ?>"><button id="load-all-photos">Toutes les photos</button></a>
+        <div class="link-to-all-pics">
+
+            <a id="load-all-photos" href="<?php echo get_site_url(); ?>">Toutes les photos</a>
+        </div>
 
     </section>
 

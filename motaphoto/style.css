@@ -16,7 +16,9 @@ html {
   margin: 0 auto;
   /* padding: 0; */
 }
-
+/* *{
+  box-shadow: 0 0 0 3px red inset;
+} */
 /*========================= Navigation menu ===================*/
 .header {
   height: 80px;
@@ -251,10 +253,10 @@ html {
   width: 100%;
   height: 50vh;
   object-fit: cover;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* background-position: center; */
 }
-
+/* hover sur l'image pour afficher les options d'affichage */
 
 
 /*========================== Load more button styles ==================*/
@@ -269,6 +271,11 @@ html {
   cursor: pointer;
   margin-top: 30px;
   margin-bottom: 30px;
+  text-decoration: none;
+}
+.link-to-all-pics {
+  display: flex;
+  align-items: center;
 }
 
 #load-all-photos,
@@ -421,7 +428,7 @@ html {
 
 
 /* ========================== Archive page ======================= */
-/* .gallery-container{
+.gallery-container{
   display: flex;
 }
 .gallery-photo{
@@ -437,8 +444,99 @@ html {
   grid-auto-rows: var(--row-height);
   gap: var(--gap);
 }
-.gallery-photo > img{
+.gallery-photo > .box-img{
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.box-img{
+  
+}
+
+/* ========================== Lightbox effect: front-page.php ======================= */
+
+
+/* .testing-lightbox img:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.testing-lightbox img {
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
 } */
+/* .image-container{
+    margin-bottom: 10px;
+  } */
+  
+  .image-container .img{
+    position: relative;
+  }
+
+  .display-photo{
+
+  }
+  
+  .image-container .overlay {
+    /* display: none; */
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 999;
+    width: 100%;
+
+  }
+  
+  .photo-grid img{
+    object-fit: cover;
+  }
+  
+  .image-container .img:hover .overlay {
+    /* display: block; */
+    visibility: visible;
+  }
+  /* #icon-eye
+  {
+    height: fit-content;
+  } */
+  .eye img{
+    object-fit: fill;
+    height: 50px;
+  }
+  
+  .open-fullscreen {
+    display: flex;
+    justify-content: end;
+   
+  }
+  .open-fullscreen img{
+    /* height: fit-content; */
+    object-fit: fill;
+    height: 50px;
+    width: 50px;
+  }
+
+  .links{
+    display: flex;
+    justify-content: space-between;
+   
+  }
+.links p {
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  margin: 0;
+}

@@ -10,6 +10,7 @@ add_theme_support('title-tag');
 function my_styles()
 {
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css',);
+    wp_enqueue_style('lightbox', get_template_directory_uri() . '/styles/lightbox.css');
 }
 add_action('wp_enqueue_scripts', 'my_styles');
 
@@ -35,9 +36,10 @@ add_action('init', 'register_my_menus');
 
 
 //========================  Load more button ================================================= //
-function load_more() {
+function load_more()
+{
     $paged = $_POST['paged'];
-    $posts_per_page = 12;
+    $posts_per_page = 4;
 
     $args = [
         'post_type' => 'photo',
@@ -70,26 +72,43 @@ function load_more() {
     $allPhotos = new WP_Query($args);
 
     if ($allPhotos->have_posts()) {
-        $displayedPosts = array(); // Initialize empty array
+        $displayedPosts = array(); // Initializing empty array
         while ($allPhotos->have_posts()) {
-            $allPhotos->the_post();
+            for ($i = 0; $i < $posts_per_page; $i++) {
+                # code...
+                $allPhotos->the_post();
+                // Checking if post has already been displayed
+                if (in_array(get_the_ID(), $displayedPosts)) {
+                    continue; // Skip this post
+                }
 
-            // Check if post has already been displayed
-            if (in_array(get_the_ID(), $displayedPosts)) {
-                continue; // Skip this post
+                $permalink = get_the_permalink();
+                $pic = get_field('image');
+
+                ?>
+                <div class="img">
+                <a href="<?php echo $permalink; ?>">
+                    <img src="<?php echo $pic['url']; ?>" alt="image de mariage">
+                </a>
+
+                <div class="overlay">
+                    <div class="open-fullscreen" rel="">
+                        <img class="fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.svg" alt="Fullscreen">
+                    </div>
+                    <div class="eye">
+                    <a href="<?php echo get_permalink(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-eye.svg" alt="Eye"></a>
+                    </div>
+                    <div class="links">
+                        <p><?php echo the_title(); ?></p>
+                        <p><?php echo get_field('category'); ?></p>
+                    </div>
+                </div>
+            </div>
+            
+            <?php
+                $displayedPosts[] = get_the_ID(); // Add post ID to array
+                // var_dump($displayedPosts) ;
             }
-
-            $permalink = get_the_permalink();
-            $pic = get_field('image');
-
-           
-            echo '<div class="img">';
-            echo '<a href="' . $permalink . '">';
-            echo '<img src="' . $pic['url'] . '" alt="image de mariage">';
-            echo '</a>';
-            echo '</div>';
-
-            $displayedPosts[] = get_the_ID(); // Add post ID to array
         }
     } else {
         echo '';
@@ -101,15 +120,3 @@ function load_more() {
 
 add_action('wp_ajax_load_more', 'load_more');
 add_action('wp_ajax_nopriv_load_more', 'load_more');
-
-
-//========================  Single page : suggested pics Load more button ================================================= //
-
-
-
-
-//========================  Front page : filters ================================================= //
- function filtersHomePage(){
-    // some code goes here
- }
-

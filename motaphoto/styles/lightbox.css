@@ -1,0 +1,40 @@
+/* .lightbox-container{
+    background-color: red;
+    height:600px;
+    width: 600px;
+    margin: 0 auto;
+}
+.lightbox-container:hover{
+    background-color: green;
+} */
+
+
+.lightbox {
+    display: none;
+    /* visibility : hidden; */
+    position: fixed;
+    /* width: 90%;
+    height: 90vh; */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+.lightbox.active{
+    display: block;
+}
+
+#close-lightbox{
+    position: absolute;
+    right: 65px;
+    top: 55px;
+    
+}
+
+

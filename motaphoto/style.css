@@ -61,6 +61,11 @@ html {
   line-height: 23px;
   color: black;
 }
+.burger-menu-opened,
+.burger-menu-icons{
+  display:none;
+}
+
 
 /*========================= Footer menu ===================*/
 
@@ -257,6 +262,9 @@ html {
   /* background-position: center; */
 }
 /* hover sur l'image pour afficher les options d'affichage */
+.img-box {
+  width: 100%;
+}
 
 
 /*========================== Load more button styles ==================*/

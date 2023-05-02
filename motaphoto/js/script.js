@@ -70,8 +70,7 @@ function loadPhotos(filters) {
         /*
         The action key is set to 'load_more', which is the name of the PHP function (in functions.php) 
         */
-        let data = `action=load_more&paged=${currentPage}`;
-
+        let data = "action=load_more&paged=" + currentPage;
         // Loop that iterates over the keys in the filters object, 
         //which contains filter values for category, format, and sort.
 
@@ -79,15 +78,14 @@ function loadPhotos(filters) {
 
             //Appending the key-value pair to the data string in the format &key=value. 
             //This way, the data string will include all the necessary information for the server-side function 
-            //to handle the filters and paginate the results correctly.
+            //to handle the filters and paginate the results correctly. It links all 3 filters together 
 
-            data += `&${key}=${filters[key]}`;
+            data += '&' + key + '=' + filters[key]; // 'action=load_more&paged=1&category=value1&format=value2&sort=value3'
         }
 
         /*
-         Data variable  holds a string similar to 
-         'action=load_more&paged=1&category=value1&format=value2&sort=value3'. 
-         This string  is sent as the request payload in the AJAX request.
+    
+         The dara is sent as the request payload in the AJAX request.
         */
         xhr.send(data);
     }
@@ -100,6 +98,7 @@ function loadPhotos(filters) {
     });
 
     sendRequest();
+   
     
     return;
 }
@@ -141,24 +140,100 @@ if (document.getElementById('load-more')) {
 
 function openLightbox(){
     
-    document.addEventListener('DOMContentLoaded', () => {
-        const lightboxOpen = document.querySelectorAll('.fullscreen');
-        console.log(lightboxOpen);
-        lightboxOpen.forEach(open => {
-            
-        console.log(open);
-            open.addEventListener('click', function () {
-                // console.log('you are clicking on lightbox');
-                const lightboxSpace = document.querySelector('.lightbox');
-                // console.log(lightboxSpace);
-                lightboxSpace.classList.add('active');
-            })
-        });
-    
+    document.querySelectorAll('.fullscreen').forEach(open => {
+        
+        open.addEventListener('click', function () {
+            const lightboxSpace = document.querySelector('.lightbox');
+            // console.log('you are clicking on lightbox');
+            // console.log('test-2');
+            lightboxSpace.classList.add('active');
+
+            lightboxImgSrc = this.getAttribute('rel');
+            lightboxImage = document.querySelector('.image-lightbox');
+            lightboxImage.src= lightboxImgSrc;
+        })
     });
+
+    
+    const closeLightbox = document.getElementById('close-lightbox');
+    closeLightbox.addEventListener('click', ()=>{
+        const lightboxSpace = document.querySelector('.lightbox');
+        lightboxSpace.classList.remove('active');
+        
+    })
 }
 
-openLightbox();
+// document.addEventListener('DOMContentLoaded', () => {
+//     openLightbox();
+//     // console.log('test');
+// });
+
+window.addEventListener('load', (event) => {
+    console.log('La page est complètement chargée');
+
+    // declancher au bout de 1 seconde d'attente. Façon à contourner le chargement
+    // setTimeout(() => {
+    //     console.log("Delayed for 1 second.");
+    //     openLightbox();
+    //   }, "1000");
+
+    // il se declance toutes les secondes
+    setInterval(() => {
+        console.log("Delayed for 1 second.");
+        openLightbox();
+      }, "1000");
+  });
+
+
+//====================================== Burger menu =========================//
+function openBurgerMenu() {
+    const openMenuIcons = document.querySelector('.burger-menu-icons');
+    openMenuIcons.addEventListener('click', () => {
+      const burgerMenuIcon = document.querySelector('.burger-menu-open');
+      const closeIcon = document.querySelector('.burger-menu-close');
+      const menu = document.querySelector('.burger-menu-opened');
+  
+      if (burgerMenuIcon.classList.contains('active')) {
+        burgerMenuIcon.classList.remove('active');
+        closeIcon.classList.add('active');
+        menu.classList.add('active');
+      } else {
+        burgerMenuIcon.classList.add('active');
+        closeIcon.classList.remove('active');
+        menu.classList.remove('active');
+        linkClicked();
+      }
+      closeIcon.addEventListener('click', ()=>{
+        closeBurgerMenu();
+      })
+
+    });
+  }
+  openBurgerMenu();
+
+
+  function linkClicked(){
+    const links = document.querySelectorAll("a");
+    
+    for (let i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', () => {
+        // console.log('clicked');
+        closeBurgerMenu();
+      });
+    }
+  }
+  linkClicked();
+
+  function closeBurgerMenu(){
+    const burgerMenuIcon = document.querySelector('.burger-menu-open');
+    const closeIcon = document.querySelector(".burger-menu-close");
+    const menu = document.querySelector('.burger-menu-opened');
+
+    burgerMenuIcon.classList.add("active");
+    closeIcon.classList.remove("active");
+    menu.classList.remove('active');
+  }
+  
 
 // })(jQuery);
 

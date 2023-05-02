@@ -46,6 +46,32 @@
             <ul id="rebel-ul">
                 <li id="contact"><a href="#">Contact</a></li>
             </ul>
-
         </div>
+
+        <!-- ajout de menu burger: les icones -->
+
+        <div class="burger-menu-icons">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/menu-burger-icon.svg" alt="Burger menu icon" class="burger-menu-open active">
+        </div>
+        
+
+
+        <!-- ajout de menu burger: une fois la fenetre ouverte -->
+        <div class="burger-menu-opened">
+            <div class="header-logo-close">
+                <a href="<?php echo home_url('/'); ?>"> <!-- Permet de revenir à l'accueil une fois logo est cliqué -->
+                    <img id="logo-mobile" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo"> <!-- Pour avoir adresse absolute (dit "complet") -->
+                </a>
+
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/menu-cross-close.svg" alt="Burger menu close icon" class="burger-menu-close">
+            </div>
+
+
+            <ul class="burger-menu-links">
+                <li><a class="link active" href="#">Accueil</a></li>
+                <li><a class="link active" href="#">À Propos</a></li>
+                <li><a class="link active" href="#">Contact</a></li>
+            </ul>
+        </div>
+
     </header>

@@ -36,5 +36,14 @@
     top: 55px;
     
 }
+.image-lightbox{
+    position: absolute;
+    width: 531px;
+    height: 710px;
+    left: calc(50% - 531px/2 - 0.5px);
+    top: calc(50% - 710px/2);
+    object-fit: cover;
+    
+}
 
 

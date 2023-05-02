@@ -11,16 +11,12 @@ function my_styles()
 {
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css',);
     wp_enqueue_style('lightbox', get_template_directory_uri() . '/styles/lightbox.css');
+    wp_enqueue_style('responsive-mobil', get_template_directory_uri() . '/styles/responsive-mobil.css');
 }
 add_action('wp_enqueue_scripts', 'my_styles');
 
 
-//====================== Ajouter le JS  =========================================== //
-function my_scripts()
-{
-    wp_enqueue_script('script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), false, true);
-}
-add_action('wp_footer', 'my_scripts');
+
 
 //========================   Plusieurs menus à rajouter via Admin Panel ============================== //
 function register_my_menus()
@@ -75,7 +71,7 @@ function load_more()
         $displayedPosts = array(); // Initializing empty array
         while ($allPhotos->have_posts()) {
             for ($i = 0; $i < $posts_per_page; $i++) {
-                # code...
+               
                 $allPhotos->the_post();
                 // Checking if post has already been displayed
                 if (in_array(get_the_ID(), $displayedPosts)) {
@@ -87,14 +83,16 @@ function load_more()
 
                 ?>
                 <div class="img">
-                <a href="<?php echo $permalink; ?>">
-                    <img src="<?php echo $pic['url']; ?>" alt="image de mariage">
-                </a>
+                    <a href="<?php echo $permalink; ?>">
+                        <img src="<?php echo $pic['url']; ?>" alt="image de mariage">
+                    </a>
+                
 
                 <div class="overlay">
                     <div class="open-fullscreen" rel="">
-                        <img class="fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.svg" alt="Fullscreen">
+                        <img rel="<?php echo $pic['url']; ?>" class="fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/images/fullscreen.svg" alt="Fullscreen">
                     </div>
+                    
                     <div class="eye">
                     <a href="<?php echo get_permalink(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-eye.svg" alt="Eye"></a>
                     </div>
@@ -120,3 +118,10 @@ function load_more()
 
 add_action('wp_ajax_load_more', 'load_more');
 add_action('wp_ajax_nopriv_load_more', 'load_more');
+
+//====================== Ajouter le JS  =========================================== //
+function my_scripts()
+{
+    wp_enqueue_script('script', get_stylesheet_directory_uri() . '/js/script.js', array('jquery'), false, true);
+}
+add_action('wp_enqueue_scripts', 'my_scripts');

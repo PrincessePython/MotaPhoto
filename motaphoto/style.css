@@ -16,6 +16,7 @@ html {
   margin: 0 auto;
   /* padding: 0; */
 }
+
 /* *{
   box-shadow: 0 0 0 3px red inset;
 } */
@@ -51,6 +52,7 @@ html {
   list-style: none;
 }
 
+
 #contact,
 #contact a,
 .my-main-menu a,
@@ -61,9 +63,10 @@ html {
   line-height: 23px;
   color: black;
 }
+
 .burger-menu-opened,
-.burger-menu-icons{
-  display:none;
+.burger-menu-icons {
+  display: none;
 }
 
 
@@ -102,6 +105,7 @@ html {
   /* à enlever */
   top: 0;
   left: 0;
+
 }
 
 .popup.active {
@@ -153,32 +157,41 @@ html {
 /* ========================== Page d'accueil =============== */
 .hero-header {
   width: 100%;
-  height: 0;
+  height: 100%;
+  /* height: 100%;
+  height: 0; */
   padding-top: 66%;
-  /* calculated from the image aspect ratio to make the header proportional on all screens. */
   position: relative;
+  /* calculated from the image aspect ratio to make the header proportional on all screens. */
   background-image: url('http://localhost/OpenClassrooms/projet-11/motaphoto/wp-content/uploads/2023/04/concert-street-scaled.webp');
+  object-fit: cover;
 }
 
 .hero-title {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin: 0;
   padding: 0;
   text-align: center;
-  left: 10%;
+  /* left: 10%; */
 
   font-family: "Space Mono", sans-serif;
-  font-size: 7em;
+  font-size: 6.5vw;
   font-weight: 700;
   font-style: italic;
-  color: white;
+  /* color: white; */
+  text-transform: uppercase;
+  /* optional: make the text uppercase */
+  white-space: nowrap;
+  /* prevent line breaks */
 
   /* text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.91);
   mix-blend-mode: overlay; */
-  -webkit-text-stroke: 2px #fff; /* pour une compatibilité avec les navigateurs webkit */
-    color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  /* pour une compatibilité avec les navigateurs webkit */
+  color: transparent;
 
 }
 
@@ -234,10 +247,11 @@ html {
   width: 100%;
 }
 
+
 .filters_text {
   font-size: 14px;
   text-transform: capitalize;
-  /* font-family: Poppins; */
+  font-family: 'Poppins';
 }
 
 
@@ -261,6 +275,7 @@ html {
   /* margin: 0 auto; */
   /* background-position: center; */
 }
+
 /* hover sur l'image pour afficher les options d'affichage */
 .img-box {
   width: 100%;
@@ -273,14 +288,18 @@ html {
   display: block;
   margin: 0 auto;
   padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
+  background-color: #D8D8D8;
+  color: rgba(0, 0, 0, 1);
   border: none;
   cursor: pointer;
   margin-top: 30px;
   margin-bottom: 30px;
   text-decoration: none;
+
+  font-family: 'Space Mono';
+  font-style: normal;
 }
+
 .link-to-all-pics {
   display: flex;
   align-items: center;
@@ -290,6 +309,14 @@ html {
 #load-more:hover {
   background-color: #444;
 }
+
+#load-more:hover {
+  background: url(assets/images/contact-hover.svg);
+  color: transparent;
+  background-size: cover;
+}
+
+
 
 /* ========================== Single page ======================= */
 
@@ -325,7 +352,7 @@ html {
   /* background-color: wheat; */
 }
 
-#pic-title {
+.pic-title {
   font-size: 66px;
   width: 67%;
   line-height: 70px;
@@ -353,31 +380,37 @@ html {
   width: 100%;
   justify-content: space-between;
   /* background-color: wheat; */
-
+  border-bottom: 2px solid black;
 }
 
-.contact-btn {
-  width: auto;
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
-  width: 50%;
-}
-#contact-filled{
+#contact-filled {
   margin-left: 30px;
   padding: 8px 33px;
   border: none;
-  border-left: 4px solid black;
+  border-left: 4px solid transparent;
   background-color: transparent;
+  cursor: pointer;
 }
 
+#contact-filled:hover {
+  border-left: 4px solid black;
+  animation-name: slide-from-left;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+}
 
 .photo-navigation {
   display: flex;
   flex-direction: column;
 }
 
-.image{
+.image {
   height: 80px;
   width: 100%;
   margin-top: 10px;
@@ -414,32 +447,37 @@ html {
 /** section bas **/
 .suggested-photo-container {
   width: 100%;
-  background-color: wheat;
+  /* background-color: wheat; */
 }
 
-.photo-suggestions{
+.text-in-upper-case {
+  text-transform: uppercase;
+}
+
+.photo-suggestions {
   display: flex;
   flex-wrap: wrap;
 }
 
-.pic-suggested{
+.pic-suggested {
   width: 48%;
   margin: 1%;
 }
 
-.pic-suggested img{
+.pic-suggested img {
   width: 100%;
-  height: 100%;
+  height: 60vh;
   object-fit: cover;
 
 }
 
 
 /* ========================== Archive page ======================= */
-.gallery-container{
+.gallery-container {
   display: flex;
 }
-.gallery-photo{
+
+.gallery-photo {
   --gap: 16px;
   --num-cols: 2;
   --row-height: 300px;
@@ -452,15 +490,14 @@ html {
   grid-auto-rows: var(--row-height);
   gap: var(--gap);
 }
-.gallery-photo > .box-img{
+
+.gallery-photo>.box-img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.box-img{
-  
-}
+.box-img {}
 
 /* ========================== Lightbox effect: front-page.php ======================= */
 
@@ -477,68 +514,69 @@ html {
 /* .image-container{
     margin-bottom: 10px;
   } */
-  
-  .image-container .img{
-    position: relative;
-  }
 
-  .display-photo{
+.image-container .img {
+  position: relative;
+}
 
-  }
-  
-  .image-container .overlay {
-    /* display: none; */
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
-    box-sizing: border-box;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    z-index: 999;
-    width: 100%;
+.display-photo {}
 
-  }
-  
-  .photo-grid img{
-    object-fit: cover;
-  }
-  
-  .image-container .img:hover .overlay {
-    /* display: block; */
-    visibility: visible;
-  }
-  /* #icon-eye
+.image-container .overlay {
+  /* display: none; */
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.92) 100%);
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 999;
+  width: 100%;
+
+}
+
+.photo-grid img {
+  object-fit: cover;
+}
+
+.image-container .img:hover .overlay {
+  /* display: block; */
+  visibility: visible;
+}
+
+/* #icon-eye
   {
     height: fit-content;
   } */
-  .eye img{
-    object-fit: fill;
-    height: 50px;
-  }
-  
-  .open-fullscreen {
-    display: flex;
-    justify-content: end;
-   
-  }
-  .open-fullscreen img{
-    /* height: fit-content; */
-    object-fit: fill;
-    height: 50px;
-    width: 50px;
-  }
+.eye img {
+  object-fit: fill;
+  height: 50px;
+}
 
-  .links{
-    display: flex;
-    justify-content: space-between;
-   
-  }
+.open-fullscreen {
+  display: flex;
+  justify-content: end;
+
+}
+
+.open-fullscreen img {
+  /* height: fit-content; */
+  object-fit: fill;
+  height: 50px;
+  width: 50px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .links p {
   color: rgba(255, 255, 255, 1);
   text-transform: uppercase;

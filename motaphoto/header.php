@@ -44,7 +44,7 @@
             <?php endif;
             ?>
             <ul id="rebel-ul">
-                <li id="contact"><a href="#">Contact</a></li>
+                <li id="contact">Contact</li>
             </ul>
         </div>
 
@@ -53,7 +53,7 @@
         <div class="burger-menu-icons">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/menu-burger-icon.svg" alt="Burger menu icon" class="burger-menu-open active">
         </div>
-        
+
 
 
         <!-- ajout de menu burger: une fois la fenetre ouverte -->

@@ -3,6 +3,7 @@
 ?>
 
 <?php while (have_posts()) : the_post() ?>
+
     <!-- La partie photo en bg + title de hero header -->
     <div class="hero-header">
         <h1 class="hero-title"><?php the_title(); ?></h1>
@@ -70,7 +71,6 @@
                 <!-- </div> -->
             </form>
         </div>
-
         <form id="filter-date">
             <div class="filter-3">
                 <label for="sort-by" class="letters-transform">Trier par</label>
@@ -81,6 +81,7 @@
                 </select>
             </div>
         </form>
+
     </section>
 
 

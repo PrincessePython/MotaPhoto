@@ -8,11 +8,13 @@
     <?php
     global $wp_query;
     ?>
+    <div class="page-container">
+
     <!-- section du haut -->
     <section class="main-content">
         <div class="content-body">
             <div class="title-type">
-                <p id="pic-title"><?php echo get_the_title() ?></p>
+                <p class="pic-title"><?php echo get_the_title() ?></p>
                 <p>Référence : <span class="ref-val"><?php echo get_field('reference'); ?></span></p>
                 <p>Catégorie : <?php echo get_field('category'); ?></p>
                 <p>Format : <?php echo get_field('format'); ?></p>
@@ -32,7 +34,7 @@
     <!-- section middle -->
     <section class="contact-carrousel">
         <div class="contact-btn">
-            <h4>You like this photo ?</h4>
+            <h4>Cette photo vous intéresse ?</h4>
             <button id="contact-filled">Contact</button>
         </div>
 
@@ -88,7 +90,7 @@
 
     <!-- section bas -->
     <section class="suggested-photo-container">
-        <h3>You might also like :</h3>
+        <h3 class="text-in-upper-case">Vous aimerez AUSSI</h3>
 
         <div class="photo-suggestions">
             <!-- recuperer les photos -->
@@ -126,7 +128,6 @@
         </div>
         <?php $archivePage = get_post_type_archive_link( 'photo' ); ?>
         <div class="link-to-all-pics">
-
             <a id="load-all-photos" href="<?php echo get_site_url(); ?>">Toutes les photos</a>
         </div>
 
@@ -139,6 +140,8 @@
     // var_dump($archivePage);
 
     ?>
+
+    </div>
     <!-- section ZONE DES TESTS  -->
     
 <?php endwhile ?>

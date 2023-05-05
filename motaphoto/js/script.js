@@ -150,7 +150,7 @@ function openLightbox(){
 
             lightboxImgSrc = this.getAttribute('rel');
             lightboxImage = document.querySelector('.image-lightbox');
-            lightboxImage.src= lightboxImgSrc;
+            lightboxImage.src = lightboxImgSrc;
         })
     });
 
@@ -165,7 +165,7 @@ function openLightbox(){
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     openLightbox();
-//     // console.log('test');
+//     console.log('test');
 // });
 
 window.addEventListener('load', (event) => {
@@ -177,6 +177,7 @@ window.addEventListener('load', (event) => {
     //     openLightbox();
     //   }, "1000");
 
+    
     // il se declance toutes les secondes
     setInterval(() => {
         console.log("Delayed for 1 second.");
@@ -233,7 +234,7 @@ function openBurgerMenu() {
     closeIcon.classList.remove("active");
     menu.classList.remove('active');
   }
-  
+
 
 // })(jQuery);
 

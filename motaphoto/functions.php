@@ -9,9 +9,10 @@ add_theme_support('title-tag');
 //=======================  Ajouter le CSS  ======================================= //
 function my_styles()
 {
-    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css',);
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
     wp_enqueue_style('lightbox', get_template_directory_uri() . '/styles/lightbox.css');
     wp_enqueue_style('responsive-mobil', get_template_directory_uri() . '/styles/responsive-mobil.css');
+    wp_enqueue_style('contact-responsive', get_template_directory_uri() . '/styles/contact-responsive.css');
 }
 add_action('wp_enqueue_scripts', 'my_styles');
 

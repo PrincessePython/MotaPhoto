@@ -163,7 +163,8 @@ html {
   padding-top: 66%;
   position: relative;
   /* calculated from the image aspect ratio to make the header proportional on all screens. */
-  background-image: url('http://localhost/OpenClassrooms/projet-11/motaphoto/wp-content/uploads/2023/04/concert-street-scaled.webp');
+  /* background-image: url('http://localhost/OpenClassrooms/projet-11/motaphoto/wp-content/uploads/2023/04/concert-street-scaled.webp'); */
+  background-image: url('https://motaphoto.codeuse.me/wp-content/uploads/2023/04/concert-street-scaled.webp');
   object-fit: cover;
 }
 
@@ -192,7 +193,6 @@ html {
   -webkit-text-stroke: 2px #fff;
   /* pour une compatibilité avec les navigateurs webkit */
   color: transparent;
-
 }
 
 .filters {

@@ -71,6 +71,7 @@
                 <!-- </div> -->
             </form>
         </div>
+        
         <form id="filter-date">
             <div class="filter-3">
                 <label for="sort-by" class="letters-transform">Trier par</label>

@@ -71,8 +71,6 @@ function load_more()
     if ($allPhotos->have_posts()) {
         $displayedPosts = array(); // Initializing empty array
         while ($allPhotos->have_posts()) {
-            for ($i = 0; $i < $posts_per_page; $i++) {
-               
                 $allPhotos->the_post();
                 // Checking if post has already been displayed
                 if (in_array(get_the_ID(), $displayedPosts)) {
@@ -107,8 +105,8 @@ function load_more()
             <?php
                 $displayedPosts[] = get_the_ID(); // Add post ID to array
                 // var_dump($displayedPosts) ;
-            }
-        }
+             // fin de for
+        } //fin du while
     } else {
         echo '';
     }

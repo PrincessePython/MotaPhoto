@@ -13,6 +13,7 @@ function my_styles()
     wp_enqueue_style('lightbox', get_template_directory_uri() . '/styles/lightbox.css');
     wp_enqueue_style('responsive-mobil', get_template_directory_uri() . '/styles/responsive-mobil.css');
     wp_enqueue_style('contact-responsive', get_template_directory_uri() . '/styles/contact-responsive.css');
+    wp_enqueue_style('404', get_template_directory_uri() . '/styles/404.css');
 }
 add_action('wp_enqueue_scripts', 'my_styles');
 

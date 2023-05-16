@@ -1,14 +1,3 @@
-/* .lightbox-container{
-    background-color: red;
-    height:600px;
-    width: 600px;
-    margin: 0 auto;
-}
-.lightbox-container:hover{
-    background-color: green;
-} */
-
-
 .lightbox {
     display: none;
     /* visibility : hidden; */
@@ -23,20 +12,16 @@
     left: 0;
     height: 100%;
     width: 100%;
-
 }
-
 .lightbox.active{
     display: block;
 }
-
 #close-lightbox{
     position: absolute;
     right: 65px;
     top: 55px;
     cursor: pointer;
 }
-
 .lightbox-image-box{
     position: absolute;
     top: 50%;
@@ -45,7 +30,6 @@
     width: 90%;
     height: 90%;
 }
-
 .image-lightbox{
     object-fit: contain;
     width: 100%;

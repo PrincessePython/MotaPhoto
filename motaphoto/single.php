@@ -37,8 +37,6 @@
             <h4>Cette photo vous intéresse ?</h4>
             <button id="contact-filled">Contact</button>
         </div>
-
-
         <?php
         // initializing variables
         $next_item = get_next_post();
@@ -49,10 +47,7 @@
                 
         $permalink_next = get_the_permalink($next_item->ID);
         $permalink_prev = get_the_permalink($previous_item->ID);
-
         ?>
-
-        
         <div class="photo-navigation">
             <div class="image">
                 <?php 
@@ -84,9 +79,7 @@
 
             </div>
         </div>
-
     </section>
-
 
     <!-- section bas -->
     <section class="suggested-photo-container">
@@ -138,9 +131,7 @@
     <?php
     // $archivePage = get_post_type_archive_link( 'photo' );
     // var_dump($archivePage);
-
     ?>
-
     </div>
     <!-- section ZONE DES TESTS  -->
     

@@ -1,226 +1,164 @@
-@media (min-width:300px) and (max-width: 768px)  {
-  *{
+@media (min-width:300px) and (max-width: 768px) {
+  * {
     /* box-shadow: 0 0 0 3px red inset; */
   }
-
-    html{
-        /* width: 100%;
+  html {
+    /* width: 100%;
         height: 100%; */
-        max-width: 768px;
-    }
-
-
-    .nav-links-container{
-        /* visibility: hidden; */
-        display: none;
-    }
-
-    .header {
-      width: 100%;
-    }
-
-
-    /*============================ burger menu ================================= */
-    .burger-menu-icons{
-        display: flex;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        cursor: pointer;
-        justify-content: end;
-    }
-
-    .burger-menu-open,
-    .burger-menu-close{
-      height: 30px;
-      width: 30px;
-      /* display: none; */
-    }
-    .burger-menu-open.active{
-      display: block;
-    }
-    .burger-menu-close.active{
-        display: block;
-    }
-
-    header{
-        z-index: 9999;
-        position: relative;
-    }
-
-    /*==================================== menu opened ===============================*/
-    .burger-menu-opened{
-        display: block;
-        visibility: hidden;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(224, 0, 0, 1);
-
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .burger-menu-opened.active{
-        visibility: visible;
-    }
-    
-
-    .header-logo-close{
-        background-color: white;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .burger-menu-links{
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        text-align: center;
-        height: 100%;
-        /* width: 100%; */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-
-    .burger-menu-links a{
-        text-decoration: none;
-        text-transform: uppercase;
-
-        font-family: "Space Mono", sans-serif;
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 34px;
-        color: white;
-
-
-    }
-
-
-    /*========================================== Main section ====================== */
-
-    /* ! filtres */
-
-
-    /*  grid */
-    .photo-grid {
-        grid-template-columns: repeat(1, 1fr);
-      }
-    
-    
-      /* ========================================== Footer =================================== */
-      .my-footer-menu {
-          flex-direction: column;
-          text-align: center;
-          gap: 10px;
-      }
-
-      /* ================================ Single page ==================== */
-      /* **************** section du haut ********************** */
-      .main-content {
-        width: 100%;
-        height: 100vh;
-        /* box-shadow: 0 0 0 3px green inset; */
-      }
-      
-      .content-body {
-        flex-direction: column-reverse;
-        gap: 10%;
-        /* box-shadow: 0 0 0 2px red inset; */
-    }
-      .title-type{
-        /* margin-top: 10%; */
-        width: 100%;
-        height: 300px; 
-        /* border-bottom: none; */
-      }
-      
-      .title-type p{
-        margin: 5px 0 15px 0;
-      }
-      .pic-title {
-        font-size: 46px;
-        width: 100%;
-        line-height: 48px;
-        /* text-align: center; */
-      }
-      .photo-container {
-        margin: 0 auto;
-        width: 100%;
-        height: 100%;
-        /* object-fit: cover; */
-        /* box-shadow: 0 0 0 2px blue inset; */
-    }
-
-      /* *************** middle section ************* */
-      
-      .contact-carrousel{
-        /* width: 100vw; */ 
-        height: 15vh;
-        /* margin-left: 10px; */
-        margin-right: 0;
-        border-bottom: 2px solid black;
-                
-      }
-      .photo-navigation{
-        display: none;
-      }
-
-      .contact-btn {
-        flex-direction: column;
-        align-items: center;
-        margin-right: 0;
-        margin-left: 20px;
-        
-      }
-      #contact-filled{
-        margin-left: 0px;
-        margin-right: 150px;
-        padding: 8px 33px;
-        border: none;
-        border-left: 4px solid black;
-        background-color: transparent;
-        
-      }
-
-
-      /* ********************* lower section **************** */
-      /* .page-container{
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-      } */
-      
-      .suggested-photo-container {
-        width: 100%;
-      }
-      .pic-suggested{
-        width: 100%;
-        margin: 0;
-      }
-    
-      .photo-suggestions{
-        flex-direction: column;
-        width: 100%;
-      }
-
-
-
-
-    
-    /* !ici c'est la fin de media query ! All the code must be written above */
-    }
-
-
-
-
+    max-width: 768px;
+  }
+  .nav-links-container {
+    /* visibility: hidden; */
+    display: none;
+  }
+  .header {
+    width: 100%;
+  }
+  /*============================ burger menu ================================= */
+  .burger-menu-icons {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+    justify-content: end;
+  }
+  .burger-menu-open,
+  .burger-menu-close {
+    height: 30px;
+    width: 30px;
+    /* display: none; */
+  }
+  .burger-menu-open.active {
+    display: block;
+  }
+  .burger-menu-close.active {
+    display: block;
+  }
+  header {
+    z-index: 9999;
+    position: relative;
+  }
+  /*==================================== menu opened ===============================*/
+  .burger-menu-opened {
+    display: block;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(224, 0, 0, 1);
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .burger-menu-opened.active {
+    visibility: visible;
+  }
+  .header-logo-close {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  .burger-menu-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .burger-menu-links a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Space Mono", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    color: white;
+  }
+  /*========================================== Main section ====================== */
+  /*  grid */
+  .photo-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  /* ========================================== Footer =================================== */
+  .my-footer-menu {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  /* ================================ Single page ==================== */
+  /* **************** section du haut ********************** */
+  .main-content {
+    width: 100%;
+    height: 100vh;
+  }
+  .content-body {
+    flex-direction: column-reverse;
+    gap: 10%;
+  }
+  .title-type {
+    width: 100%;
+    height: 300px;
+  }
+  .title-type p {
+    margin: 5px 0 15px 0;
+  }
+  .pic-title {
+    font-size: 46px;
+    width: 100%;
+    line-height: 48px;
+  }
+  .photo-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+  }
+  /* *************** middle section ************* */
+  .contact-carrousel {
+    /* width: 100vw; */
+    height: 15vh;
+    /* margin-left: 10px; */
+    margin-right: 0;
+    border-bottom: 2px solid black;
+  }
+  .photo-navigation {
+    display: none;
+  }
+  .contact-btn {
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 20px;
+  }
+  #contact-filled {
+    margin-left: 0px;
+    margin-right: 150px;
+    padding: 8px 33px;
+    border: none;
+    border-left: 4px solid black;
+    background-color: transparent;
+  }
+  /* ********************* lower section **************** */
+  .suggested-photo-container {
+    width: 100%;
+  }
+  .pic-suggested {
+    width: 100%;
+    margin: 0;
+  }
+  .photo-suggestions {
+    flex-direction: column;
+    width: 100%;
+  }
+  /* !ici c'est la fin de media query ! All the code must be written above */
+}
 @media(min-width: 769px) {
-
-    .burger-menu-icons,
-    .burger-menu-opened {
-        display: none;
-    }
-
+  .burger-menu-icons,
+  .burger-menu-opened {
+    display: none;
+  }
 }

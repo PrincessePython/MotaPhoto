@@ -1,0 +1,39 @@
+.error-404 {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.error-404 .page-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.error-404 .page-title img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.error-404 .page-content {
+  font-size: 18px;
+}
+
+.error-404 .search-form {
+  margin-top: 20px;
+}
+
+.error-404 .search-form input[type="search"] {
+  padding: 10px;
+  width: 300px;
+}
+
+.error-404 .search-form input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.error-404 .search-form input[type="submit"]:hover {
+  background-color: #555;
+}

@@ -29,30 +29,24 @@ html {
   justify-content: space-between;
   align-items: center;
 }
-
 .my-main-menu {
   display: flex;
   flex-direction: row;
   gap: 15px;
 }
-
 .nav-links-container {
   display: flex;
   justify-content: space-between;
   gap: 15px;
 }
-
 #rebel-ul {
   padding: 0;
 }
-
 #contact,
 .my-main-menu li,
 .my-footer-menu li {
   list-style: none;
 }
-
-
 #contact,
 #contact a,
 .my-main-menu a,
@@ -63,35 +57,26 @@ html {
   line-height: 23px;
   color: black;
 }
-
 .burger-menu-opened,
 .burger-menu-icons {
   display: none;
 }
-
-
 /*========================= Footer menu ===================*/
-
 .footer {
   height: 40px;
   border-top: solid 1px black;
   /* background-color: #2C3E50; */
 }
-
 .my-footer-menu {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
-
 .right-reserved {
   text-decoration: none;
   pointer-events: none;
 }
-
 /* ========================= Contact pop-up ================= */
-
 .popup {
   visibility: hidden;
   position: fixed;
@@ -105,26 +90,20 @@ html {
   /* à enlever */
   top: 0;
   left: 0;
-
 }
-
 .popup.active {
   visibility: visible;
 }
-
 .popup-body {
   background: white;
   border-radius: 20px;
   max-width: 25%;
   position: relative;
 }
-
 .wpcf7 {
   padding-left: 30px;
   padding-right: 30px;
-
 }
-
 #close {
   position: absolute;
   top: -5px;
@@ -140,20 +119,15 @@ html {
   align-items: center;
   transition: all 0.4s ease-out;
 }
-
 #close:hover {
   transform: rotate(180deg);
 }
-
-
 .contact-banner {
   width: 100%;
 }
-
 .contact-banner img {
   max-width: 100%;
 }
-
 /* ========================== Page d'accueil =============== */
 .hero-header {
   width: 100%;
@@ -167,7 +141,6 @@ html {
   background-image: url('https://motaphoto.codeuse.me/wp-content/uploads/2023/04/concert-street-scaled.webp');
   object-fit: cover;
 }
-
 .hero-title {
   position: absolute;
   top: 50%;
@@ -176,68 +149,48 @@ html {
   margin: 0;
   padding: 0;
   text-align: center;
-  /* left: 10%; */
-
   font-family: "Space Mono", sans-serif;
   font-size: 6.5vw;
   font-weight: 700;
   font-style: italic;
-  /* color: white; */
   text-transform: uppercase;
-  /* optional: make the text uppercase */
-  white-space: nowrap;
   /* prevent line breaks */
-
-  /* text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.91);
-  mix-blend-mode: overlay; */
+  white-space: nowrap;
   -webkit-text-stroke: 2px #fff;
-  /* pour une compatibilité avec les navigateurs webkit */
   color: transparent;
 }
-
 .filters {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 .filters {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* add this line to vertically center the filters */
   margin-top: 20px;
   margin-bottom: 20px;
   width: 100%;
-  /* add this line to take up the full width of the container */
 }
-
 .filters-1-2 {
   display: flex;
   width: 50%;
 }
-
 #filter-cat,
 #filter-formats {
   width: 50%;
-  /* divide the width equally */
 }
-
 #filter-formats {
   margin-right: 0;
   /* remove margin-right from the last filter */
 }
-
 #categories-select,
 #filter-select {
   width: 97%;
-  /* height: 2vh; */
 }
-
 .filter-3 {
   display: flex;
   flex-direction: column;
@@ -246,42 +199,29 @@ html {
 #sort-dates {
   width: 100%;
 }
-
-
 .filters_text {
   font-size: 14px;
   text-transform: capitalize;
   font-family: 'Poppins';
 }
-
-
-
 .title-type p,
 .letters-transform {
   text-transform: uppercase;
 }
-
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
 }
-
 .photo-grid img {
   display: block;
   width: 100%;
   height: 50vh;
   object-fit: cover;
-  /* margin: 0 auto; */
-  /* background-position: center; */
 }
-
-/* hover sur l'image pour afficher les options d'affichage */
 .img-box {
   width: 100%;
 }
-
-
 /*========================== Load more button styles ==================*/
 #load-all-photos,
 #load-more {
@@ -295,83 +235,61 @@ html {
   margin-top: 30px;
   margin-bottom: 30px;
   text-decoration: none;
-
   font-family: 'Space Mono';
   font-style: normal;
 }
-
 .link-to-all-pics {
   display: flex;
   align-items: center;
 }
-
 #load-all-photos,
 #load-more:hover {
   background-color: #444;
 }
-
 #load-more:hover {
   background: url(assets/images/contact-hover.svg);
   color: transparent;
   background-size: cover;
 }
-
-
-
 /* ========================== Single page ======================= */
-
 /** section du haut **/
 .main-content {
+  
   width: 100%;
   height: 843px;
-  /* border-bottom: 1px solid #000000; */
-  /* background-color: greenyellow; */
 }
-
 .content-body {
   display: flex;
   width: 100%;
   height: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
-  /* background-color: red; */
 }
-
 .title-type {
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: flex-start;
-
   width: 50%;
   height: 100%;
-
   border-bottom: 2px solid black;
   border-bottom-width: 40%;
   margin-right: 1%;
-  /* background-color: wheat; */
 }
-
 .pic-title {
   font-size: 66px;
   width: 67%;
   line-height: 70px;
 }
-
 .photo-container {
   height: 100%;
   width: 50%;
-  /* background-color: blue !important; */
 }
-
 .photo-container img {
-  /* il faut choisir si je me base sur le portrait ou le paysage mais on ne peut pas avoir les 2 */
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-
-
 /** debut section contact - carrousel : section middle **/
 .contact-carrousel {
   display: flex;
@@ -382,7 +300,6 @@ html {
   /* background-color: wheat; */
   border-bottom: 2px solid black;
 }
-
 #contact-filled {
   margin-left: 30px;
   padding: 8px 33px;
@@ -391,7 +308,6 @@ html {
   background-color: transparent;
   cursor: pointer;
 }
-
 #contact-filled:hover {
   border-left: 4px solid black;
   animation-name: slide-from-left;
@@ -399,130 +315,87 @@ html {
   animation-delay: 2s;
   animation-fill-mode: forwards;
 }
-
 .contact-btn {
   display: flex;
   align-items: center;
 }
-
 .photo-navigation {
   display: flex;
   flex-direction: column;
 }
-
 .image {
   height: 80px;
   width: 100%;
   margin-top: 10px;
 }
-
 .image img {
   max-height: 80px;
   width: auto;
   margin-top: 10px;
 }
-
 .arrows {
   margin-top: 5px;
   display: flex;
   gap: 15%;
 }
-
 .arrows img {
   max-height: 20px;
 }
-
 #right-arrow,
 #left-arrow {
   margin-right: 10px;
 }
-
 /*--------------- fin section contact - carrousel ---------------*/
 
 /* recuperation de la classe du champs d'input utilisateur */
 /* input[name="reference"]{
   background-color: red !important;
 } */
-
 /** section bas **/
 .suggested-photo-container {
   width: 100%;
-  /* background-color: wheat; */
 }
-
 .text-in-upper-case {
   text-transform: uppercase;
 }
-
 .photo-suggestions {
   display: flex;
   flex-wrap: wrap;
 }
-
 .pic-suggested {
   width: 48%;
   margin: 1%;
 }
-
 .pic-suggested img {
   width: 100%;
   height: 60vh;
   object-fit: cover;
-
 }
-
-
 /* ========================== Archive page ======================= */
 .gallery-container {
   display: flex;
 }
-
 .gallery-photo {
   --gap: 16px;
   --num-cols: 2;
   --row-height: 300px;
-
   box-sizing: border-box;
   padding: var(--gap);
-
   display: grid;
   grid-template-columns: repeat(var(--num-cols), 1fr);
   grid-auto-rows: var(--row-height);
   gap: var(--gap);
 }
-
 .gallery-photo>.box-img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-
-.box-img {}
-
 /* ========================== Lightbox effect: front-page.php ======================= */
-
-
-/* .testing-lightbox img:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.testing-lightbox img {
-  object-fit: cover;
-  transition: opacity 0.3s ease-in-out;
-} */
-/* .image-container{
-    margin-bottom: 10px;
-  } */
-
 .image-container .img {
   position: relative;
 }
-
-.display-photo {}
-
 .image-container .overlay {
-  /* display: none; */
   visibility: hidden;
   position: absolute;
   top: 0;
@@ -537,46 +410,30 @@ html {
   padding: 20px;
   z-index: 999;
   width: 100%;
-
 }
-
 .photo-grid img {
   object-fit: cover;
 }
-
 .image-container .img:hover .overlay {
-  /* display: block; */
   visibility: visible;
 }
-
-/* #icon-eye
-  {
-    height: fit-content;
-  } */
 .eye img {
   object-fit: fill;
   height: 50px;
 }
-
 .open-fullscreen {
   display: flex;
   justify-content: end;
-
 }
-
 .open-fullscreen img {
-  /* height: fit-content; */
   object-fit: fill;
   height: 50px;
   width: 50px;
 }
-
 .links {
   display: flex;
   justify-content: space-between;
-
 }
-
 .links p {
   color: rgba(255, 255, 255, 1);
   text-transform: uppercase;

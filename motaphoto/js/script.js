@@ -153,8 +153,6 @@ function openLightbox(){
             lightboxImage.src = lightboxImgSrc;
         })
     });
-
-    
     const closeLightbox = document.getElementById('close-lightbox');
     closeLightbox.addEventListener('click', ()=>{
         const lightboxSpace = document.querySelector('.lightbox');
